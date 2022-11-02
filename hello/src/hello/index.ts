@@ -17,12 +17,19 @@ export function hello(_options: Schema): Rule {
         '"name" es obligatorio. Sin nombre no podemos crear el fichero'
       )
     }
-    _context.logger.info(`Opciones: NAME: ${name}, AGE: ${age}`);
+    const path = `hello-${name.toLowerCase()}-${age || 0}.js`;
+    if (tree.read(path)) {
+      console.warn(
+        `El fichero ${path} existe y por eso no se va a crear.`
+      );
+      return tree;
+    }
+    // SI NO EXISTE crear el fichero
     // Función para alterar en nuestro proyecto
     // para crear el fichero "hello.js" con el log especificado
     // posteriormente
     tree.create(
-      `hello-${name.toLowerCase()}-${age || 0}.js`,
+      path,
       `console.log('¡Hola ${name}!Veo que tienes ${age || 0} años ;)')`
     )
     return tree;
