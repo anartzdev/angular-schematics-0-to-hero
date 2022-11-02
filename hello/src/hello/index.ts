@@ -15,7 +15,7 @@ export function hello(_options: any): Rule {
     // para crear el fichero "hello.js" con el log especificado
     // posteriormente
     tree.create(
-      'hello.js',
+      `hello-${name.toLowerCase()}-${age}.js`,
       `console.log('¡Hola ${name}!Veo que tienes ${age} años ;)')`
     )
     return tree;
