@@ -9,12 +9,14 @@ import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
  */
 export function hello(_options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
+    const { name, age } = _options;
+    _context.logger.info(`Opciones: NAME: ${name}, AGE: ${age}`);
     // Función para alterar en nuestro proyecto
     // para crear el fichero "hello.js" con el log especificado
     // posteriormente
     tree.create(
       'hello.js',
-      "console.log('Hola, estamos trabajando con nuestro primer schematic')"
+      `console.log('¡Hola ${name}!Veo que tienes ${age} años ;)')`
     )
     return tree;
   };
