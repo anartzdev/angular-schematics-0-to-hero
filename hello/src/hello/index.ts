@@ -1,4 +1,5 @@
 import { Rule, SchematicContext, Tree, SchematicsException } from '@angular-devkit/schematics';
+import { Schema } from './schema';
 
 /**
  * Función factory donde se especifican las reglas de la 
@@ -7,9 +8,9 @@ import { Rule, SchematicContext, Tree, SchematicsException } from '@angular-devk
  * @param _options 
  * @returns 
  */
-export function hello(_options: any): Rule {
+export function hello(_options: Schema): Rule {
   return (tree: Tree, _context: SchematicContext) => {
-    const { name, age } = _options;
+    const { name, age }: Schema = _options;
 
     if (name === '' || !name) {
       throw new SchematicsException(
