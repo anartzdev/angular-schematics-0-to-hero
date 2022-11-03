@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "SchematicsHello",
+    "title": "Hello Application Options Schema",
+    "type": "object",
+    "description": "Add files with specify name and age.",
+    "properties": {
+      "name": {
+        "description": "Nombre de la persona.",
+        "type": "string",
+        "x-prompt": "Introduzca nombre de la persona a saludar:"
+      },
+      "age": {
+        "description": "Edad de la persona.",
+        "type": "string",
+        "x-prompt": "Introduzca edad:"
+      }
+    }
+}
